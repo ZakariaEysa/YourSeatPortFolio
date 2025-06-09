@@ -4,7 +4,6 @@ import 'package:null_company/screens/page_one.dart';
 
 void main() {
   runApp(const MyApp());
-  
 }
 
 class MyApp extends StatelessWidget {
