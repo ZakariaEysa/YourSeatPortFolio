@@ -4,24 +4,24 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:null_company/global/page_one_info.dart';
 import 'package:null_company/url_launcher.dart';
 import 'package:url_launcher/url_launcher.dart';
-  Map<String, Color> appColors = {
-    "textPrimary": Color(0xFF1C1C1C), // نص أساسي بلون غامق
-    "primaryBackground": Color(0xFFF5F7F9), // خلفية رئيسية بلون هادئ وفاتح جدًا
-    "gradientStart": Color(0xFFE8ECF1), // بداية التدرج بلون رمادي مائل للأزرق
-    "gradientEnd": Color(0xFFDDE3EA), // نهاية التدرج بلون أفتح
-    "appBarText":
-        Color(0xFF1A1A1A), // لون النص في الـ AppBar داكن ليتباين مع الخلفية
-    "heroMainText": Color(0xFF333333), // نص رئيسي غامق قليلاً
-    "heroSubText": Color(0xFF666666), // نص فرعي بلون رمادي متوسط
-    "buttonBackground":
-        Color(0xffFFF0F2), // زر بلون أزرق هادئ (نفسه من الوضع الداكن)
-    "buttonText": Color(0xFFFFFFFF), // نص الزر أبيض لتباين واضح
-    "iconColor": Color(0xFF444444), // أيقونات بلون رمادي غامق
-  };
+
+Map<String, Color> appColors = {
+  "textPrimary": Color(0xFF1C1C1C), // نص أساسي بلون غامق
+  "primaryBackground": Color(0xFFF5F7F9), // خلفية رئيسية بلون هادئ وفاتح جدًا
+  "gradientStart": Color(0xFFE8ECF1), // بداية التدرج بلون رمادي مائل للأزرق
+  "gradientEnd": Color(0xFFDDE3EA), // نهاية التدرج بلون أفتح
+  "appBarText":
+      Color(0xFF1A1A1A), // لون النص في الـ AppBar داكن ليتباين مع الخلفية
+  "heroMainText": Color(0xFF333333), // نص رئيسي غامق قليلاً
+  "heroSubText": Color(0xFF666666), // نص فرعي بلون رمادي متوسط
+  "buttonBackground":
+      Color(0xffFFF0F2), // زر بلون أزرق هادئ (نفسه من الوضع الداكن)
+  "buttonText": Color(0xFFFFFFFF), // نص الزر أبيض لتباين واضح
+  "iconColor": Color(0xFF444444), // أيقونات بلون رمادي غامق
+};
+
 class PageOne extends StatelessWidget {
   PageOne({super.key});
-
- 
 
   void _showMessage(BuildContext context) {
     final randomMessage = (messages..shuffle()).first;
@@ -44,6 +44,15 @@ class PageOne extends StatelessWidget {
 
   void _downloadSecondApk() async {
     final Uri url = Uri.parse(appURL);
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url, mode: LaunchMode.externalApplication);
+    } else {
+      throw "Could not launch $url";
+    }
+  }
+
+  void _dashBoard() async {
+    final Uri url = Uri.parse(dashBoard);
     if (await canLaunchUrl(url)) {
       await launchUrl(url, mode: LaunchMode.externalApplication);
     } else {
@@ -226,6 +235,41 @@ class PageOne extends StatelessWidget {
                           ],
                         ),
                       ),
+                      const SizedBox(height: 8),
+                      TextButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStatePropertyAll(
+                              appColors['buttonBackground']),
+                          minimumSize: MaterialStatePropertyAll(
+                            Size(screenWidth * 0.9, buttonHeight),
+                          ),
+                          shape: MaterialStatePropertyAll(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                        ),
+                        onPressed: _dashBoard,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.web,
+                              color: appColors['cardTextSecondary'],
+                              size: baseFontSize * 1.5,
+                            ),
+                            const SizedBox(width: 10),
+                            Text(
+                              " DashBoard ",
+                              style: TextStyle(
+                                color: appColors['textPrimary'],
+                                fontSize: baseFontSize * 0.9,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
                     ],
                   ),
                 ),

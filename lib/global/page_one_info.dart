@@ -4,7 +4,8 @@ const String appName = "YourSeat";
 const String appSize = "70 MB";
 const String appLogo = "assets/images/logo.png";
 const String appURL =
-    "https://drive.google.com/uc?export=download&id=1JDIuZMMzOLkPlzNcWBieg3gIQZqPyaOd";
+    "https://drive.google.com/uc?export=download&id=1E-XOxeSIFFT03p36RdWmn4tg8GiHewZs";
+const String dashBoard = "https://yourseatgraduationprojec-19068.web.app/";
 const String? IOS_appURL = null; // This value can be left
 const String appDescription =
     "YourSeat is your smart movie ticket booking app,\ndesigned to make reserving seats at cinemas easy and hassle-free.\n\nSay goodbye to long queues and last-minute stress!\nWith YourSeat, you can browse available movies,\nchoose your favorite cinema and seat,\nand pay securely—all from your phone.\n\nEverything you need for a smooth cinema experience,\nright at your fingertips.📌";
