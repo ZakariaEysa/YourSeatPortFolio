@@ -236,39 +236,78 @@ class PageOne extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 8),
-                      TextButton(
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStatePropertyAll(
-                              appColors['buttonBackground']),
-                          minimumSize: MaterialStatePropertyAll(
-                            Size(screenWidth * 0.9, buttonHeight),
-                          ),
-                          shape: MaterialStatePropertyAll(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                          ),
-                        ),
-                        onPressed: _dashBoard,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.web,
-                              color: appColors['cardTextSecondary'],
-                              size: baseFontSize * 1.5,
-                            ),
-                            const SizedBox(width: 10),
-                            Text(
-                              " DashBoard ",
-                              style: TextStyle(
-                                color: appColors['textPrimary'],
-                                fontSize: baseFontSize * 0.9,
-                                fontWeight: FontWeight.bold,
+                      Stack(
+                        alignment: Alignment.topRight,
+                        children: [
+                          TextButton(
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStatePropertyAll(
+                                  appColors['buttonBackground']),
+                              minimumSize: MaterialStatePropertyAll(
+                                Size(screenWidth * 0.9, buttonHeight),
+                              ),
+                              shape: MaterialStatePropertyAll(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
                               ),
                             ),
-                          ],
-                        ),
+                            onPressed: _dashBoard,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.web,
+                                  color: appColors['cardTextSecondary'],
+                                  size: baseFontSize * 1.5,
+                                ),
+                                const SizedBox(width: 10),
+                                Text(
+                                  " DashBoard ",
+                                  style: TextStyle(
+                                    color: appColors['textPrimary'],
+                                    fontSize: baseFontSize * 0.9,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Positioned(
+                            top: 4,
+                            right: 8,
+                            child: GestureDetector(
+                              onTap: () {
+                                showDialog(
+                                  context: context,
+                                  builder: (context) => AlertDialog(
+                                    title: Text("بيانات الدخول"),
+                                    content: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: const [
+                                        Text("email: admin@admin.com"),
+                                        Text("password: Aa@#1234"),
+                                      ],
+                                    ),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () => Navigator.pop(context),
+                                        child: Text("حسناً"),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
+                              child: Icon(
+                                Icons.info_outline,
+                                color: Colors.red,
+                                size: 25,
+                              ),
+                            ),
+                          ),
+                        ],
                       )
                     ],
                   ),
