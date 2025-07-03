@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const String appName = "YourSeat";
+const String appName = "YourSeat Application";
 const String appSize = "70 MB";
 const String appLogo = "assets/images/logo.png";
 const String appURL =

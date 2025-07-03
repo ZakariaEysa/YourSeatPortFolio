@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:null_company/screens/MyHomePage.dart';
 import 'package:null_company/screens/page_one.dart';
+import 'package:null_company/screens/page_two.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => MyHomePage(),
         '/page_one': (context) => PageOne(),
+        '/page_two': (context) => PageTwo(),
       },
 
       debugShowCheckedModeBanner: false,

@@ -4,6 +4,7 @@ import 'package:null_company/global/page_one_info.dart';
 import 'package:null_company/url_launcher.dart';
 
 import '../colors.dart';
+import '../global/page_two_info.dart';
 import 'page_one.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -156,47 +157,98 @@ class MyHomePage extends StatelessWidget {
                 ),
               ),
               // Section 2: Products
-              Padding(
-                padding: EdgeInsets.symmetric(
-                    horizontal: screenWidth < 600 ? 20 : 40),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, '/page_one');
-                      },
-                      borderRadius: BorderRadius.circular(20),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Container(
-                            width: screenWidth < 600 ? screenWidth * 0.2 : 100,
-                            height: screenWidth < 600 ? screenWidth * 0.2 : 100,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              image: const DecorationImage(
-                                image: AssetImage(appLogo),
-                                fit: BoxFit.cover,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: screenWidth < 600 ? 20 : 40),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/page_one');
+                          },
+                          borderRadius: BorderRadius.circular(20),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Container(
+                                width:
+                                    screenWidth < 600 ? screenWidth * 0.2 : 100,
+                                height:
+                                    screenWidth < 600 ? screenWidth * 0.2 : 100,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  image: const DecorationImage(
+                                    image: AssetImage(appLogo),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
                               ),
-                            ),
+                              const SizedBox(height: 5),
+                              Text(
+                                appName,
+                                style: TextStyle(
+                                  color: appColors['appBarText'],
+                                  fontSize: baseFontSize * 0.8,
+                                  fontWeight: FontWeight.w900,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
                           ),
-                          const SizedBox(height: 5),
-                          Text(
-                            appName,
-                            style: TextStyle(
-                              color: appColors['appBarText'],
-                              fontSize: baseFontSize * 0.8,
-                              fontWeight: FontWeight.w900,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: screenWidth < 600 ? 20 : 40),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/page_two');
+                          },
+                          borderRadius: BorderRadius.circular(20),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Container(
+                                width:
+                                    screenWidth < 600 ? screenWidth * 0.2 : 100,
+                                height:
+                                    screenWidth < 600 ? screenWidth * 0.2 : 100,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  image: const DecorationImage(
+                                    image: AssetImage(appLogo),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(height: 5),
+                              Text(
+                                pageTwoName,
+                                style: TextStyle(
+                                  color: appColors['appBarText'],
+                                  fontSize: baseFontSize * 0.8,
+                                  fontWeight: FontWeight.w900,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
               ),
+
               // Section 3: Footer
               Container(
                 color: appColors['primaryBackground'],
